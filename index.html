@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Dom</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+       .fruits-container li {
+            color: tomato;
+        }
+        #fruits-title{
+            color: black;
+        }
+        .important-places{
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum magni minus earum deserunt, nobis molestiae quas illum voluptas blanditiis possimus eius! In tempora ratione ipsa dolorem? Corporis sequi vero quas?</p>
+    </header>
+    <main id="main-container">
+        <section>
+            <h1>My awesome dom de baba</h1>
+            <ul>
+                <li>Jalali Set</li>
+                <li>Shafayat</li>
+                <li>Bonobash</li>
+                <li>Dom de re baba</li>
+            </ul>
+        </section>
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section id="places-container">
+            <h1 class="palces-title">Places I like to visit</h1>
+            <ul id="places-list">
+                <li class="important-places">Sondarban</li> 
+                <li class="important-places">Bandarban</li>
+                <li class="important-places">Kataban</li>
+                <li class="important-places">Shalban</li>
+            </ul>
+        </section>
+    </main>
+    <script src="js/dom.js"></script>
+    <script src="js/append.js"></script>
+    <script src="js/styleInJs.js"></script>
+    <script>
+        const student = {
+            name: 'ABDUL',
+            ID: 11,
+            study: function (time) {
+                console.log(time, 'study kortese');
+            }
+        }
+        // console.log('adding js in html file');
+        //option 1: getElementByTagName
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection);
+        // console.log(document);
+        for (const li of liCollection) {
+            // console.log(li.innerText);
+        }
+        //option 2: getElementById
+        const fruitsTitle = document.getElementById('fruits-title');
+        fruitsTitle.innerText= 'Fruits changes by 35';
+        //option 3: getElementsByClassName
+        const places = document.getElementsByClassName('important-places');
+        // console.log(places);
+        for(const place of places){
+            // console.log(place.innerText);
+        }
+
+        //option 4: querySelectorAll
+        const someLi = document.querySelectorAll('.fruits-container li');
+        // console.log(someLi);
+        //option 5: querySelector
+        const someLi1 = document.querySelector('.fruits-container li');
+        // console.log(someLi1);
+
+        const title= document.getElementById('fruits-title').style
+        // console.log(title);
+        const title1= document.getElementById('fruits-title').style.color = 'red';
+        // console.log(title1);
+        const title3= document.getElementById('fruits-title').style.backgroundColor = 'yellow';
+        // console.log(title3);
+        const title4= document.getElementById('fruits-title').style.textAlign='center';
+        // console.log(title4);
+        const title5= fruitsTitle.getAttribute('id');
+        // console.log(title5);
+        const title6= fruitsTitle.getAttribute('class');
+        // console.log(title6);
+        const title7= fruitsTitle.classList;
+        // console.log(title7);
+        const title8= fruitsTitle.classList.remove('blue-bg');
+        // console.log(title7);
+        const title9= fruitsTitle.classList.add('purple-bg');
+        // console.log(title7);
+        fruitsTitle.setAttribute('title', 'tooltip set by javascript');
+        const title10 = document.getElementsByClassName('fruits-container')[0];
+        // console.log(title10);
+        const title11 = document.getElementsByClassName('fruits-container')[0].innerHTML;
+        // console.log(title11);
+
+        const title12= document.getElementById('places-container');
+        console.log(title12.childNodes);
+        console.log(title12.childNodes[1]);
+        console.log(title12.childNodes[3].childNodes);
+        console.log(title12.childNodes[3].childNodes[5].nextSibling);
+        //create element
+        const li=document.createElement('li');
+        li.innerText="Brand new place to go";
+        console.log(li);
+        const placesUL= document.querySelector('#places-container ul');
+        console.log(placesUL);
+        placesUL.appendChild(li);
+        console.log(placesUL.parentNode);
+
+    </script>
+</body>
+
+</html>
